@@ -111,6 +111,7 @@ function Contact() {
                     <textarea
                         name='message'
                         value={formData.message}
+                        
                         onChange={handleChange}
                         className='dark:bg-[#343335] text-black dark:text-white p-2 rounded-lg w-full border-2 dark:border-transparent focus:border-[rgb(244,108,56)] focus:outline-none'
                         placeholder='Message'

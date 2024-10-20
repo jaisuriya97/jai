@@ -40,10 +40,6 @@ function Projects() {
         }
     ]);
     useEffect(() => {
-
-        if (currentLocation === '/projects') {
-            document.title = 'Projects | Portfolio';
-        }
         gsap.registerPlugin(ScrollTrigger);
         const tl = gsap.timeline({
             scrollTrigger: {

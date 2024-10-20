@@ -32,7 +32,7 @@ function Home() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".home",
-                start: "top 50%",
+                start: "top 80%",
                 end: "bottom 50%",
                 toggleActions: "play none none reverse",
 

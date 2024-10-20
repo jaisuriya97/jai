@@ -11,21 +11,27 @@ function Home() {
 
     useEffect(() => {
         async function fetchDuolingoStreak() {
-            const res = await fetch(
-                `https://www.duolingo.com/2017-06-30/users?username=JaiSuriya9&fields=streak,streakData%7BcurrentStreak,previousStreak%7D%7D`
-            );
-            const data = await res.json();
-            const userData = data.users[0];
-            const fetchedStreak = Math.max(
-                userData?.streak ?? 0,
-                userData?.streakData?.currentStreak?.length ?? 0,
-                userData?.streakData?.previousStreak?.length ?? 0
-            );
-            setStreak(fetchedStreak);
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Public CORS proxy
+            const apiUrl = `https://www.duolingo.com/2017-06-30/users?username=JaiSuriya9&fields=streak,streakData%7BcurrentStreak,previousStreak%7D`;
+
+            try {
+                const res = await fetch(proxyUrl + apiUrl);
+                const data = await res.json();
+                const userData = data.users[0];
+                const fetchedStreak = Math.max(
+                    userData?.streak ?? 0,
+                    userData?.streakData?.currentStreak?.length ?? 0,
+                    userData?.streakData?.previousStreak?.length ?? 0
+                );
+                setStreak(fetchedStreak);
+            } catch (error) {
+                console.error('Error fetching Duolingo streak:', error);
+            }
         }
 
         fetchDuolingoStreak();
     }, []);
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +41,6 @@ function Home() {
                 start: "top 80%",
                 end: "bottom 50%",
                 toggleActions: "play none none reverse",
-
             }
         });
 
@@ -48,10 +53,12 @@ function Home() {
             duration: 0.7,
             stagger: 0.6
         });
+
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
     }, []);
+
     const handleToggleText = () => {
         setShowText(!showText);
     };
@@ -107,8 +114,6 @@ function Home() {
                 </Link>
             </div>
         </div>
-
-
     );
 }
 

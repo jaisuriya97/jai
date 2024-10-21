@@ -11,7 +11,7 @@ function Home() {
 
     useEffect(() => {
         async function fetchDuolingoStreak() {
-            const url = "https://www.duolingo.com/2017-06-30/users?username=jaisuriya9"
+            const url = "https://cors-anywhere.herokuapp.com/https://www.duolingo.com/2017-06-30/users?username=jaisuriya9"
             const response = await fetch(url);
             const data = await response.json();
             setStreak(data.users[0].streak);

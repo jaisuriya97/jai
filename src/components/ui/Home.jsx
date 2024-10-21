@@ -61,7 +61,7 @@ function Home() {
                     SOFTWARE<br />
                     <span className='text-[#353334]  m-0 p-0'>ENGINEER</span>
                 </h1>
-                <p className='text-lg text-[#998F8F]'>Passionate about creating intuitive and engaging <br /> user experiences. Specialize in transforming ideas <br /> into beautifully crafted products.</p>
+                <p className='text-lg text-[#998F8F] mt-2'>Passionate about creating intuitive and engaging  user experiences. Specialize in transforming ideas into beautifully crafted products.</p>
             </div>
             <div className='flex flex-col gap-2 items-start'>
                 <div className='flex items-center' onClick={handleToggleText}>

@@ -15,7 +15,7 @@ function Education() {
             course: "Higher Secondary Certificate",
             institution: "Mount Park Higher Secondary School",
             location: "Kallakurichi",
-            date: "2018-2020",
+            date: "2019-2020",
         },
         {
             course: "Secondary School Leaving Certificate",

@@ -34,8 +34,8 @@ function Projects() {
         },
         {
             src:'/assets/germini_ai.png',
-            title:'Germini AI',
-            desc:'A Germini API website',
+            title:'Gemini AI',
+            desc:'A Gemini API website',
             link:'https://gemini-ai-pro.vercel.app/'
         }
     ]);

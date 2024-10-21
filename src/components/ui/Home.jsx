@@ -6,36 +6,21 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function Home() {
-    const [streak, setStreak] = useState(190);
+    const initialStreak = 190; 
+    const initialDate = new Date("2024-10-21"); 
+
+    const [streak, setStreak] = useState(initialStreak);
     const [showText, setShowText] = useState(false);
 
     useEffect(() => {
-        // Load streak from local storage
-        const storedStreak = localStorage.getItem('streak');
-        const lastUpdated = localStorage.getItem('lastUpdated');
+        const now = new Date();
+        const timeDiff = now - initialDate; 
+        const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24)); 
 
-        // If there is a stored streak, update state
-        if (storedStreak) {
-            setStreak(Number(storedStreak));
-        }
-
-        // Check if a day has passed since the last update
-        if (lastUpdated) {
-            const lastUpdateDate = new Date(lastUpdated);
-            const now = new Date();
-            const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
-
-            if (now - lastUpdateDate > oneDay) {
-                // Increment streak and update last updated date
-                const newStreak = Number(storedStreak) + 1;
-                setStreak(newStreak);
-                localStorage.setItem('streak', newStreak);
-                localStorage.setItem('lastUpdated', now.toISOString());
-            }
-        } else {
-            // If there's no last updated date, set it now
-            localStorage.setItem('lastUpdated', new Date().toISOString());
-        }
+        const currentStreak = initialStreak + daysPassed; 
+        setStreak(currentStreak); 
+        localStorage.setItem('streak', currentStreak);
+        localStorage.setItem('lastUpdated', now.toISOString());
     }, []);
 
     useEffect(() => {

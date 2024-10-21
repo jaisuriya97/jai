@@ -102,7 +102,7 @@ function Herocard() {
         <div className='text-orange-500 flex py-5 text-2xl gap-6 items-center justify-center'>
           <a href="https://github.com/jaisuriya97" target='_blank' ><FiGithub /></a>
           <a href="https://www.linkedin.com/in/jaisuriya-p-k-7156a2236/" target='_blank'><FiLinkedin /></a>
-          <a href onClick={() => { window.open('mailto:jaisuirya200297@gmail.com?subject=Subject&body=Body%20goes%20here') }} ><FiMail /></a>
+          <a href onClick={() => { window.open('mailto:jaisuirya200297@gmail.com?subject=Subject&body=%20Give%20a%20👋') }} ><FiMail /></a>
           <a href="#" ><FiInstagram /></a>
         </div>
       </div>

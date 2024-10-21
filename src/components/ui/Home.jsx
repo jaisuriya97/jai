@@ -6,17 +6,36 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function Home() {
-    const [streak, setStreak] = useState(0);
+    const [streak, setStreak] = useState(190);
     const [showText, setShowText] = useState(false);
 
     useEffect(() => {
-        async function fetchDuolingoStreak() {
-            const url = "https://www.duolingo.com/2017-06-30/users?username=jaisuriya9"
-            const response = await fetch(url);
-            const data = await response.json();
-            setStreak(data.users[0].streak);
+        // Load streak from local storage
+        const storedStreak = localStorage.getItem('streak');
+        const lastUpdated = localStorage.getItem('lastUpdated');
+
+        // If there is a stored streak, update state
+        if (storedStreak) {
+            setStreak(Number(storedStreak));
         }
-        fetchDuolingoStreak();
+
+        // Check if a day has passed since the last update
+        if (lastUpdated) {
+            const lastUpdateDate = new Date(lastUpdated);
+            const now = new Date();
+            const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
+
+            if (now - lastUpdateDate > oneDay) {
+                // Increment streak and update last updated date
+                const newStreak = Number(storedStreak) + 1;
+                setStreak(newStreak);
+                localStorage.setItem('streak', newStreak);
+                localStorage.setItem('lastUpdated', now.toISOString());
+            }
+        } else {
+            // If there's no last updated date, set it now
+            localStorage.setItem('lastUpdated', new Date().toISOString());
+        }
     }, []);
 
     useEffect(() => {
@@ -79,7 +98,7 @@ function Home() {
                 <p className='text-base text-[#998F8F]'>A Journey in Japanese Mastery 🇯🇵</p>
             </div>
             <div className='flex flex-col sm:flex-row justify-between gap-4 w-full'>
-                <Link to='/experience' className='w-full  bg-[#F56D38] h-60 rounded-xl bg-hero-pattern bg-center flex flex-col gap-5 pt-[20px] px-[20px] pb-[22px]'>
+                <Link to='/experience' className='w-full bg-[#F56D38] h-60 rounded-xl bg-hero-pattern bg-center flex flex-col gap-5 pt-[20px] px-[20px] pb-[22px]'>
                     <h1 className='text-4xl'>
                         <FiLayers />
                     </h1>

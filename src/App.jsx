@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar'
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Navbar from './components/Navbar';
 import Herocard from "./components/Herocard";
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
@@ -10,7 +11,22 @@ import Education from "./components/ui/Education";
 import Skill from "./components/ui/Skill";
 import DarkModeSwitch from "./components/ui/DarkModeSwitch";
 import About from "./components/ui/About";
-import './App.css'
+import './App.css';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+};
 
 const LandingPage = () => {
   return (
@@ -26,56 +42,37 @@ const LandingPage = () => {
   );
 };
 
-const ProjectsPage = ()=>{
+const MainPage = ({ Component }) => {
+  const isMobile = useIsMobile();
+  const location = useLocation();
+
   return (
-    <div className='flex flex-col justify-center items-center text-white w-full  px-4 lg:px-20'>
-      <Navbar />
-      <div className='flex flex-col xl:flex-row items-center xl:items-start md:items-center lg:items-center mt-20 gap-20 w-full justify-center relative' >
-        <Herocard />
-        <div className="max-w-[700px]">
-        <Projects />
-        <Contact /> 
-        </div>
-      </div>
-      <DarkModeSwitch />  
-      <Footer />
-    </div>
-  )
-}
-const ExperiencePage = ()=>{
-return (
-  <div className='flex flex-col justify-center items-center text-white w-full  px-4 lg:px-20'>
-    <Navbar />
-    <div className='flex flex-col xl:flex-row items-center xl:items-start md:items-center lg:items-center mt-20 gap-20 w-full justify-center relative'>
-      <Herocard />
-      <div className="max-w-[700px]">
-        <Experience />
-        <Contact />
-      </div>
-    </div>
-    <DarkModeSwitch />  
-    <Footer />
-  </div>
-)
-}
-const AboutPage = ()=>{
-  return (
-    <div className='flex flex-col justify-center items-center text-white w-full  px-4 lg:px-20'>
+    <div className='flex flex-col justify-center items-center text-white w-full px-4 lg:px-20'>
       <Navbar />
       <div className='flex flex-col xl:flex-row items-center xl:items-start md:items-center lg:items-center mt-20 gap-20 w-full justify-center relative'>
-        <Herocard />
+        {!isMobile || location.pathname === '/' ? <Herocard /> : null}
         <div className="max-w-[700px]">
-          <About />
-          <Education />
-          <Skill />
+          <Component />
           <Contact />
         </div>
       </div>
       <DarkModeSwitch />  
       <Footer />
     </div>
-  )
-}
+  );
+};
+
+const ProjectsPage = () => <MainPage Component={Projects} />;
+const ExperiencePage = () => <MainPage Component={Experience} />;
+const AboutPage = () => (
+  <MainPage Component={() => (
+    <>
+      <About />
+      <Education />
+      <Skill />
+    </>
+  )} />
+);
 
 function App() {
   return (
@@ -87,7 +84,7 @@ function App() {
         <Route path='/about' element={<AboutPage />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

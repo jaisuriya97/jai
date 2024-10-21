@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function Home() {
-    const initialStreak = 190; 
+    const initialStreak = 191; 
     const initialDate = new Date("2024-10-21"); 
 
     const [streak, setStreak] = useState(initialStreak);

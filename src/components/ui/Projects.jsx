@@ -67,7 +67,7 @@ function Projects() {
 
     return (
         <div className='animat'>
-            <div className='flex flex-col mt-20' style={{ fontFamily: "Poppins" }}>
+            <div className='flex flex-col lg:mt-20 mt-2' style={{ fontFamily: "Poppins" }}>
                 <h1 className='m-0 p-0 lg:text-8xl text-5xl dark:text-white text-black' style={{ fontWeight: 700, lineHeight: '1' }}>
                     RECENT<br />
                     <span className='text-[#353334] m-0 p-0'>PROJECTS</span>

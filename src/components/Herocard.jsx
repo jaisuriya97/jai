@@ -56,7 +56,7 @@ function Herocard() {
       repeat: 1,
       onComplete: () => {
         const link = document.createElement('a');
-        link.href = '/assets/Jaisuriya_P_K.pdf'; 
+        link.href = "/assets/Jaisuriya.pdf"; 
         link.download = 'Jai_Suriya_Resume.pdf';
         link.click();
       }

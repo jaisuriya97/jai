@@ -37,11 +37,29 @@ function Experience() {
                   <span className='text-[#353334] m-0 p-0'>EXPERIENCE</span>
               </h1>
           </div>
+   <div className='flex flex-col s gap-10 mt-10' style={{ fontFamily: "Poppins" }}>
+    <a href='https://whirldatascience.com/' target="_blank" className='flex justify-between transition-colors duration-300 ease-in-out dark:hover:bg-[#1C1A19] hover:shadow-lg p-4 rounded-xl group border-2 dark:border-0'>
+        <div className='flex gap-5 items-center'>
+            <div className='flex flex-col gap-3'>
+                <h1 className='text-2xl font-semibold dark:text-white text-black'>Solution Associate</h1>
+                <p className='text-[#998F8F] text-md' style={{wordBreak:"break-word",wordWrap:"break-word"}}>
+                    As a Solution Associate at Whirldata, I developed and optimized visualization modules for financial data using React and Recharts, 
+                    improving data analysis capabilities. I also enhanced system performance by optimizing Laravel-based data export processes, 
+                    reducing execution times significantly, and played a key role in UI migrations to reduce operational costs.
+                </p>
+                <p className='text-[#998F8F]'>December 2024 - Present</p>
+            </div>
+        </div>
+        <div className='transition-transform duration-300 ease-in-out transform group-hover:translate-y-[-6px] group-hover:translate-x-[10px]'>
+            <FiArrowUpRight className='text-[#FF6B00] text-2xl' />
+        </div>
+    </a>
+</div>
           <div className='flex flex-col s gap-10 mt-10' style={{ fontFamily: "Poppins" }}>
               <a href='https://whirldatascience.com/' target="_blank" className='flex  justify-between transition-colors duration-300 ease-in-out dark:hover:bg-[#1C1A19] hover:shadow-lg  p-4 rounded-xl group border-2 dark:border-0'>
                   <div className='flex gap-5 items-center'>
                       <div className='flex flex-col gap-3'>
-                          <h1 className='text-2xl font-semibold dark:text-white text-black'>Solution Trainee - Intern</h1>
+                          <h1 className='text-2xl font-semibold dark:text-white text-black'>Solution Trainee </h1>
                           <p className='text-[#998F8F] text-md' style={{wordBreak:"break-word",wordWrap:"break-word"}}>
                               As a Solution Trainee at Whirldata, I developed responsive  user interfaces for ThinkRisk using Laravel, React, and  TypeScript,   integrating them with backend systems.   This role enhanced my skills in modern br front-end  technologies and client-focused solutions.</p>
                           <p className='text-[#998F8F]'>March 2024 - Present</p>

@@ -62,7 +62,7 @@ function Experience() {
                           <h1 className='text-2xl font-semibold dark:text-white text-black'>Solution Trainee </h1>
                           <p className='text-[#998F8F] text-md' style={{wordBreak:"break-word",wordWrap:"break-word"}}>
                               As a Solution Trainee at Whirldata, I developed responsive  user interfaces for ThinkRisk using Laravel, React, and  TypeScript,   integrating them with backend systems.   This role enhanced my skills in modern br front-end  technologies and client-focused solutions.</p>
-                          <p className='text-[#998F8F]'>March 2024 - Present</p>
+                          <p className='text-[#998F8F]'>March 2024 - November 2024</p>
                       </div>
                   </div>
                   <div className='transition-transform duration-300 ease-in-out transform group-hover:translate-y-[-6px] group-hover:translate-x-[10px]'>

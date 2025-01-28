@@ -39,6 +39,10 @@ function Skill() {
             title: 'Core Java',
             icon: java,
             description: 'Programming Language'
+        },{
+             title: 'Golang',
+            icon:"https://go.dev/blog/go-brand/Go-Logo/SVG/Go-Logo_Blue.svg",
+            description: 'Programming Language'
         }
     ];
     useEffect(() => {

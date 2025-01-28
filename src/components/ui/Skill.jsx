@@ -5,6 +5,7 @@ import laravel from "../../assets/laravel.svg";
 import mysql from "../../assets/mysql.svg";
 import github from "../../assets/github.svg";
 import java from "../../assets/java.svg";
+import go from "../../assets/go.svg";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -41,7 +42,7 @@ function Skill() {
             description: 'Programming Language'
         },{
              title: 'Golang',
-            icon:"https://go.dev/blog/go-brand/Go-Logo/SVG/Go-Logo_Blue.svg",
+            icon:go,
             description: 'Programming Language'
         }
     ];
